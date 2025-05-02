@@ -5,9 +5,8 @@ const PORT = 4000;
 const middlewares = require('./middlewares');
 const routes = require('./routes');
 
-const bodyParser = require('body-parser');
-const session = require('express-session');
-const bodyParser = require('body-parser');
+
+
 const dotenv = require('dotenv');
 
 dotenv.config();
