@@ -18,11 +18,11 @@ const session = require('express-session');
 
 // -------------------------------------------------------------------------------------
 
-//Usado?: 
-const express = require('express');
+//Usado?: x
+//const express = require('express');
 //--- Explicación:
 
-// -------------------------------------------------------------------------------------
+// con esto estoy importando el modulo Express para poder usarlo -------------------------------------------------------------------------------------
 
 //Usado?: 
 const bodyParser = require('body-parser');
@@ -42,17 +42,17 @@ const dotenv = require('dotenv');
 
 // -------------------------------------------------------------------------------------
 
-//Usado?: 
-const middlewares = require('./middlewares');
+//Usado?: x
+//const middlewares = require('./middlewares');
 //--- Explicación:
 
-// -------------------------------------------------------------------------------------
+// estoy importando middlewares en la pag.ppal-------------------------------------------------------------------------------------
 
-//Usado?: 
-const routes = require('./routes');
+//Usado?: x
+//const routes = require('./routes');
 //--- Explicación:
 
-// -------------------------------------------------------------------------------------
+// importo las rutas en la pag ppal-------------------------------------------------------------------------------------
 
 //Usado?: 
 dotenv.config();
@@ -60,14 +60,14 @@ dotenv.config();
 
 // -------------------------------------------------------------------------------------
 
-//Usado?: 
-const app = express();
+//Usado?: x 
+//const app = express();
 //--- Explicación:
 
-// -------------------------------------------------------------------------------------
+// creo una instancia para poder manejar las peticiones y respuestas del servidor -------------------------------------------------------------------------------------
 
 //Usado?: 
-const PORT = 4000;
+//const PORT = 4000;
 //--- Explicación:
 
 // -------------------------------------------------------------------------------------
