@@ -1,102 +1,102 @@
 // Snippets de código para poder componer el programa
 
-//Usado?: 
+//Usado?: x
   const middlewares = require('./middlewares');
 //--- Explicación: 
 
-// -------------------------------------------------------------------------------------
+// estoy importando middlewares-------------------------------------------------------------------------------------
 
-//Usado?: 
+//Usado?: x
 const bodyParser = require('body-parser');
 //--- Explicación:
 
-// -------------------------------------------------------------------------------------
+//estoy requiriendo una librería de Node.js que se utiliza con Express para analizar y procesar los datos del cuerpo de las solicitudes HTTP. -------------------------------------------------------------------------------------
 
-//Usado?: 
+//Usado?: x
 const session = require('express-session');
 //--- Explicación:
 
-// -------------------------------------------------------------------------------------
+// esto sirve para mantener un estado persistente para cada usuario, facilitando la creación de aplicaciones web más dinámicas y personalizadas. -------------------------------------------------------------------------------------
 
 //Usado?: x
-//const express = require('express');
+const express = require('express');
 //--- Explicación:
 
 // con esto estoy importando el modulo Express para poder usarlo -------------------------------------------------------------------------------------
 
-//Usado?: 
+//Usado?: x
 const bodyParser = require('body-parser');
 //--- Explicación:
 
-// -------------------------------------------------------------------------------------
+// estoy requiriendo una librería de Node.js que se utiliza con Express para analizar y procesar los datos del cuerpo de las solicitudes HTTP.-------------------------------------------------------------------------------------
 
-//Usado?: 
+//Usado?: x 
 const session = require('express-session');
 //--- Explicación:
 
-// -------------------------------------------------------------------------------------
+// esto sirve para mantener un estado persistente para cada usuario, facilitando la creación de aplicaciones web más dinámicas y personalizadas-------------------------------------------------------------------------------------
 
-//Usado?: 
+//Usado?: x
 const dotenv = require('dotenv');
 //--- Explicación:
 
-// -------------------------------------------------------------------------------------
+// Este módulo permite cargar variables de entorno desde un archivo .env en el directorio raíz de un proyecto, y hacerlas accesibles en el código como variables de entorno del sistema. -------------------------------------------------------------------------------------
 
 //Usado?: x
-//const middlewares = require('./middlewares');
+const middlewares = require('./middlewares');
 //--- Explicación:
 
 // estoy importando middlewares en la pag.ppal-------------------------------------------------------------------------------------
 
 //Usado?: x
-//const routes = require('./routes');
+const routes = require('./routes');
 //--- Explicación:
 
 // importo las rutas en la pag ppal-------------------------------------------------------------------------------------
 
-//Usado?: 
+//Usado?: x
 dotenv.config();
 //--- Explicación:
 
-// -------------------------------------------------------------------------------------
+// estoy llamando al metodo para cargar las variables de entorno del archivo-------------------------------------------------------------------------------------
 
 //Usado?: x 
-//const app = express();
+const app = express();
 //--- Explicación:
 
 // creo una instancia para poder manejar las peticiones y respuestas del servidor -------------------------------------------------------------------------------------
 
-//Usado?: 
-//const PORT = 4000;
+//Usado?: x
+const PORT = 4000;
 //--- Explicación:
 
-// -------------------------------------------------------------------------------------
+// guardo en una variable el puerto que voy a utilizar -------------------------------------------------------------------------------------
 
-//Usado?: 
+//Usado?: x
 const dotenv = require('dotenv');
 //--- Explicación:
 
-// -------------------------------------------------------------------------------------
+// Este módulo permite cargar variables de entorno desde un archivo .env en el directorio raíz de un proyecto, y hacerlas accesibles en el código como variables de entorno del sistema-------------------------------------------------------------------------------------
 
-//Usado?:
+//Usado?: 
 dotenv.config();
 //--- Explicación:
 
-// -------------------------------------------------------------------------------------
+// estoy llamando al metodo para cargar las variables de entorno del archivo -------------------------------------------------------------------------------------
 
-//Usado?:
+//Usado?:x
 middlewares.setupApp(app);
 //--- Explicación: 
 
-// -------------------------------------------------------------------------------------
+//  se utiliza para configurar y registrar los middlewares en una aplicación web.-------------------------------------------------------------------------------------
 
-//Usado?:
+//Usado?:x
 routes.setup(app);
 //--- Explicación: 
 
-// -------------------------------------------------------------------------------------
+//  se usa para registrar las rutas o endpoints de una aplicación web,-------------------------------------------------------------------------------------
 
-//Usado?:
+//Usado?:x
 const validarPalabraMiddleware = (req, res, next) => {
   const palabraCorrecta = process.env.PALABRA_SECRETA || '';
 
@@ -107,13 +107,13 @@ const validarPalabraMiddleware = (req, res, next) => {
     res.redirect('/?error=1');
   }
 };
-//--- Explicación: 
+// es el middleware con la funcion para validar la palabra que el usuario ponga en el input si es correcta sigue y sino devuelve un mensaje de error--- Explicación: 
 
 
 // -------------------------------------------------------------------------------------
 
 
-//Usado?:
+//Usado?: x
 const setup = (app) => {
   app.get('/', (req, res) => {
     const mensajeError = req.query.error
@@ -124,13 +124,13 @@ const setup = (app) => {
     }
   //Aquí va código dentro
 })}
-//--- Explicación: 
+//Muestra la página de inicio si no hay sesión. Redirige al perfil si el usuario ya está logado. Muestra mensajes de error si hubo un intento fallido anterior.--- Explicación: 
 
 
 // -------------------------------------------------------------------------------------
 
 
-//Usado?:
+//Usado?:x
 res.send(`
   <html>
     <body>
@@ -144,12 +144,12 @@ res.send(`
     </body>
   </html>
 `);
-//--- Explicación: 
+//uesta del servidor que envía al navegador una página HTML cuando entramos a la pag.principal--- Explicación: 
 
 
 // -------------------------------------------------------------------------------------
 
-
+//Usado?:x
 const setupAPP = (app) => {
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(session({
@@ -158,8 +158,9 @@ const setupAPP = (app) => {
     saveUninitialized: true,
   }));
 };
+// Se configura el entorno de la aplicación  ------------------------------------------------------------
 
-//Usado?:
+//Usado?:x
 app.post('/profile', middlewares.validarPalabraMiddleware, (req, res) => {
   res.send(`
     <h1>Ruta del Perfil</h1>
@@ -168,37 +169,36 @@ app.post('/profile', middlewares.validarPalabraMiddleware, (req, res) => {
     </form>
   `);
 });
-//--- Explicación: 
+//Esto define lo que pasa cuando alguien envía el formulario con la palabra desde la página de inicio.--- Explicación: 
 
 // -------------------------------------------------------------------------------------
 
-//Usado?:
+//Usado?:x
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//--- Explicación: 
+//permite que el servidor maneje datos de formularios HTML enviados mediante el método POST. El extended: true permite el uso de estructuras complejas como objetos y arrays dentro del cuerpo de la solicitud--- Explicación: 
 
 // -------------------------------------------------------------------------------------
 
-//Usado?:
+//Usado?:x
 app.use(session({
   secret: process.env.PALABRA_SECRETA || 'secretoSuperSecreto',
   resave: false,
   saveUninitialized: true,
 }));
 
-//--- Explicación: 
+//permite que app use sesiones para recordar datos del usuario--- Explicación: 
 
 // -------------------------------------------------------------------------------------
 
-//Usado?:
+//Usado?:x
 app.listen(PORT, () => {
-  console.log(`Servidor en ejecución en http://localhost:${PORT}`);
-});
-//--- Explicación: 
+  console.log(`Servidor en ejecución en http://localhost:${PORT}`);});
+// el servidor se esta inicializando en el puerto que le estamos pasando--- Explicación: 
 
 // -------------------------------------------------------------------------------------
 
-//Usado?:
+//Usado?:x
 const verificarSesionMiddleware = (req, res, next) => {
   if (req.session.palabraSecreta) {
     next();
@@ -206,12 +206,12 @@ const verificarSesionMiddleware = (req, res, next) => {
     res.redirect('/?error=2');
   }
 };
-//--- Explicación: 
+//es un middleware de proteccion, actua como un filtro para acceder a una ruta protegida--- Explicación: 
 
 // -------------------------------------------------------------------------------------
 
 
-//Usado?:
+//Usado?:x
 app.get('/profile', middlewares.verificarSesionMiddleware, (req, res) => {
   res.send(`
     <h1>Ruta del Perfil (Sesión activa)</h1>
@@ -220,12 +220,12 @@ app.get('/profile', middlewares.verificarSesionMiddleware, (req, res) => {
     </form>
   `);
 });
-//--- Explicación: 
+// esta es la ruta para saber si la sesion esta activa o no--- Explicación: 
 
 // -------------------------------------------------------------------------------------
 
 
-//Usado?:
+//Usado?:x
 app.post('/logout', (req, res) => {
   req.session.destroy((err) => {
     if (err) {
@@ -234,25 +234,25 @@ app.post('/logout', (req, res) => {
     res.redirect('/');
   });
 });
-//--- Explicación: 
+//Este código cierra la sesión del usuario y lo devuelve a la página de inicio--- Explicación: 
 
 // -------------------------------------------------------------------------------------
 
-//Usado?:
+//Usado?:x
 module.exports = {
   setup,
 };
-//--- Explicación:
+//exporto la funcion--- Explicación:
 
 // -------------------------------------------------------------------------------------
 
-//Usado?:
+//Usado?:x
 module.exports = {
   validarPalabraMiddleware,
   verificarSesionMiddleware,
   setupAPP,
 };
-//--- Explicación:
+//exporto las funciones que use en middlewares--- Explicación:
 
 // -------------------------------------------------------------------------------------
 

@@ -2,6 +2,21 @@
 const bodyParser = require('body-parser');
 const session = require('express-session');
 
+//app.use(bodyParser.urlencoded({ extended: true }));
+
+const setupApp = (app) => {
+  app.use(bodyParser.urlencoded({ extended: true }));
+  app.use(session({
+    secret: 'secretoSuperSecreto',
+    resave: false,
+    saveUninitialized: true,
+  }));
+  app.use(session({
+    secret: process.env.PALABRA_SECRETA || 'secretoSuperSecreto',
+    resave: false,
+    saveUninitialized: true,
+  }));
+};
 
 
 const validarPalabraMiddleware = (req, res, next) => {
@@ -24,17 +39,9 @@ const validarPalabraMiddleware = (req, res, next) => {
     }
   };
 
-  const setupAPP = (app) => {
-    app.use(bodyParser.urlencoded({ extended: true }));
-    app.use(session({
-      secret: 'secretoSuperSecreto',
-      resave: false,
-      saveUninitialized: true,
-    }));
-  };
 
   module.exports = {
     validarPalabraMiddleware,
     verificarSesionMiddleware,
-    setupAPP,
+    setupApp,
   };
